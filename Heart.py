@@ -1,9 +1,8 @@
-# import the necessary modules
+# import necessary modules
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 import pandas as pd
-import numpy as np
 
 # import the dataset
 data = pd.read_csv("framingham.csv")
@@ -27,12 +26,6 @@ lr = LogisticRegression()
 lr.fit(X_train, y_train)
 y_pred = lr.predict(X_test)
 
+# display the results
 print(lr.score(X_test, y_test))
 print(lr.score(X_train, y_train))
-
-print(lr.coef_)
-
-sample = np.array([1, 55, 1.0, 40, 0.0, 0, 0, 1, 250.0, 140.0, 90.0, 25.0, 80]).reshape(1, -1)
-sample = scaler.transform(sample)
-print(lr.predict(sample))
-print(lr.predict_proba(sample))
